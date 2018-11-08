@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const glob = require('glob');
 // html模板
 const htmlWebpackPlugin = require("html-webpack-plugin");
@@ -45,22 +46,100 @@ function getEntry() {
 
 
 module.exports = {
-    entry: getEntry(),
+	entry: getEntry(),
+	module: {
+		rules: [
+			{
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    // options: {
+                    //     presets: ['es2015-nostrict'],
+                    //     plugins: ['transform-runtime']
+                    // }
+                }
+            },
+			{
+				test: /\.html$/,
+				// html中的img标签
+				use: ["html-withimg-loader"]
+			}, 
+			{
+                test: /\.(png|jpg|jpe?g|gif)$/,
+                use: ['url-loader?limit=4096&name=[name]' +  '.[hash:8]' + '.[ext]&outputPath=img/', 'image-webpack-loader']
+            },
+            {
+                test: /\.(svg|woff|woff2|ttf|eot)(\?.*$|$)/,
+				// loader: 'file-loader?name=font/[name].[hash:8].[ext]',
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[path][name].[hash:8].[ext]',
+						}
+					}
+				]
+            },
+            {
+                test: /\.(css)$/,
+                use: [{
+                    loader: 'css-hot-loader'
+                }, {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        publicPath: '../'
+                    }
+                }, {
+                    loader: 'css-loader'
+                }]
+            },
+            {
+                test: /\.(scss)$/,
+                use: [{
+                    loader: 'css-hot-loader'
+                }, {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        publicPath: '../'
+                    }
+                }, {
+                    loader: 'css-loader'
+                }, {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: function () {
+                            return [
+                                require('autoprefixer')
+                            ];
+                        }
+                    }
+                }, {
+                    loader: 'sass-loader'
+                }]
+            },
+		]
+	},
     plugins: [
 		// 全局暴露统一入口
 		new webpack.ProvidePlugin({
-		
+			$: 'jquery',
+			jQuery: 'jquery'
 		}),
 		// //静态资源输出
 		new copyWebpackPlugin([{
-			from: path.resolve(__dirname, "../src/assets"),
-			to: './assets',
+			from: path.resolve(__dirname, "../src/asserts"),
+			to: './asserts',
 			ignore: ['.*']
 		}]),
 		// // 消除冗余的css代码
 		// new purifyCssWebpack({
 		// 	paths: glob.sync(path.join(__dirname, "../src/pages/*/*.html"))
 		// }),
+		new MiniCssExtractPlugin({
+            filename: 'css/' +  '[name].[contenthash:8].min.css',
+            chunkFilename: 'css/' +  '[name].chunk.[contenthash:8].min.css',
+        })
 	]
 };
 //配置页面

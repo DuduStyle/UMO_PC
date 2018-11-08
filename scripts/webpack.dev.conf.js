@@ -20,13 +20,13 @@ const webpackConfigDev = {
 		// stats: "errors-only", //stats: "errors-only"表示只打印错误：
 		hot: true, // 开启热更新
 		//服务器代理配置项
-        proxy: {
-            '/test/*':{
-                target: 'https://www.baidu.com',
-                secure: true,
-                changeOrigin: true
-            }
-        }
+        // proxy: {
+        //     '/test/*':{
+        //         target: 'https://www.baidu.com',
+        //         secure: true,
+        //         changeOrigin: true
+        //     }
+        // }
     },
     plugins: [
 		//热更新
