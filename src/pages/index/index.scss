@@ -4,5 +4,128 @@
     //     top: 0;
     //     z-index: 99;
     //     background: #fff;
-    // }    
+    // }  
+
+    .logo {
+        margin-right:100px; 
+    }
+    @media (min-width: 992px) {
+        .navbar-expand-lg .navbar-nav .nav-link {
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+        }
+    }
+    .navbar-dark .navbar-nav .active > .nav-link {
+        color: #009AF4;
+    }
+    .block {
+        padding: 100px 0;
+        .header {
+            text-align: center;
+            .name {
+                font-size: 24px;
+                color: #444444;
+                padding: 5px;
+                margin:0;
+            }
+            .subtitle {
+                font-size: 12px;
+                color:#C1C1C1;
+                margin:0;
+            }
+            &::before {
+                background-color: #C1C1C1;
+                display: block;
+                height: 1px;
+                margin: 0 auto;
+                width: 60px;
+                content: '';
+            }
+        }
+    }
+    .server {
+        background: #F5F5F5;
+   
+        .list {
+            margin-top: 60px;
+            font-weight: 400;
+            .list-item {
+                text-align: center;
+                padding: 35px 0;
+                transition: all .2s linear;
+                &:hover {
+                    background: #fff;
+                    box-shadow:0px 3px 18px 2px rgba(0, 0, 0, 0.1);
+                }
+                .icon {
+                    margin-bottom: 30px;
+                }
+                .title {
+                    font-size: 15px;
+                    color: #444444;
+                    margin-bottom: 0;
+                }
+                .en-title {
+                    color:#9E9E9E;
+                    font-size: 12px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+    }
+    .case {
+        background: #fff;
+        .container_category{
+            text-align: center;
+            a {
+                padding: 10px 26px;
+                line-height: 12px;
+                font-size: 12px;
+                color: #7F7F7F;
+                position: relative;
+                display: inline-block;
+                &:not(:last-child)::after {
+                    content: '';
+                    position: absolute;
+                    width: 1px;
+                    height: 12px;
+                    right: -3px;
+                    top: 12px;
+                    background: #c1c1c1;
+                }
+            }
+        }
+        .container_list {
+            .container_list_item {
+                margin-bottom:8px;
+                padding: 0 5px; 
+                .image {
+                    width: 100%;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .item-info {
+                    position: absolute;
+                    top:0;
+                    left: 5px;
+                    right: 5px;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.7);
+                    color: #F5F5F5;
+                    padding: 20px;
+                    font-size: 12px;
+                    .case-logo {
+                        margin-bottom: 18px;
+                    }
+                    .title {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+  
 }
