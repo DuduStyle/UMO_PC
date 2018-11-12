@@ -5,7 +5,9 @@
     //     z-index: 99;
     //     background: #fff;
     // }  
-
+    .container {
+        position: relative;
+    }
     .logo {
         margin-right:100px; 
     }
@@ -22,6 +24,7 @@
         padding: 100px 0;
         .header {
             text-align: center;
+            margin-bottom: 20px;
             .name {
                 font-size: 24px;
                 color: #444444;
@@ -45,7 +48,6 @@
     }
     .server {
         background: #F5F5F5;
-   
         .list {
             margin-top: 60px;
             font-weight: 400;
@@ -108,24 +110,103 @@
                     }
                 }
                 .item-info {
-                    position: absolute;
-                    top:0;
-                    left: 5px;
-                    right: 5px;
-                    bottom: 0;
-                    background: rgba(0, 0, 0, 0.7);
-                    color: #F5F5F5;
-                    padding: 20px;
+                    background: #f3f3f3;
+                    color: #222;
+                    padding: 22px 20px;
                     font-size: 12px;
-                    .case-logo {
-                        margin-bottom: 18px;
+                    p {
+                        margin: 0;
                     }
                     .title {
                         font-size: 18px;
+                    }
+                    .info {
+                        color: rgb(158, 158, 158);
+                        line-height: 18px;
                     }
                 }
             }
         }
     }
-  
+
+    .about {
+        // width: 100%;
+        position: relative;
+        background-image:url('../../asserts/img/index/about.png');
+        height: 400px;
+        margin-bottom: 200px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .about_block {
+            position: absolute;
+            padding: 40px 30px;
+            padding-right: 160px;
+            top: 200px;
+            left: 0;
+            right: 0;
+            height: 400px;
+            background: #fff;
+            box-shadow:0px 3px 18px 2px rgba(0, 0, 0, 0.1);
+            margin-right: 280px;
+            font-size: 13px;
+            .header {
+                margin-bottom: 20px;
+                .name {
+                    font-size: 24px;
+                    color: #444444;
+                    margin:0;
+                }
+                .subtitle {
+                    font-size: 12px;
+                    color:#C1C1C1;
+                    margin:0;
+                }
+                &::before {
+                    background-color: #C1C1C1;
+                    display: block;
+                    height: 1px;
+                    width: 60px;
+                    content: '';
+                }
+            }
+            .detail {
+                line-height: 28px;
+                padding: 30px 0;
+            }
+            .more {
+                font-size: 14px;
+                padding: 10px 42px;
+                border:1px solid rgba(193, 193, 193, 1);
+                border-radius:2px;
+            }
+        }
+        .about_img {
+            position: absolute;
+            top: 270px;
+            right:0;
+            // height: 230px;
+            width: 400px;
+        }
+    }
+    .partner {
+        .content {
+            .list-item {
+                background: #f5f5f5;
+                // height: 80px;
+                // line-height: 80px;
+                text-align: center;
+                margin-bottom: 25px;
+                margin-right: 20px;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+       
+    }
+    .contact {
+        background: #F5F5F5; 
+    } 
 }
