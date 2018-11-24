@@ -46,7 +46,16 @@ function getEntry() {
 
 
 module.exports = {
-	entry: getEntry(),
+    entry: getEntry(),
+    resolve: {
+        extensions: ['.js', '.json', '.txt'],
+        alias: {
+          components: path.join(__dirname, '/../src/components'),
+          utils: path.join(__dirname, '/../src/utils'),
+          style: path.join(__dirname, '/../src/style'),
+          images: path.join(__dirname, '/../src/images'),
+        },
+      },
 	module: {
 		rules: [
 			{

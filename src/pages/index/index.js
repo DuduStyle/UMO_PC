@@ -1,3 +1,4 @@
 import '../../asserts/common';
-import './index.scss'
+import 'style/base.css';
+import './index.scss';
 console.log('sssssssssssss', $('#test'));
